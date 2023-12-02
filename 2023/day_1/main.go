@@ -124,14 +124,7 @@ func findWordIndexes(w string, dw string) []int {
 func calculateCalibrationValue(calStr string) int64 {
 	calVal := int64(0)
 	calStrLength := len(calStr)
-	if calStrLength == 0 {
-		return calVal
-	} else if calStrLength == 1 {
-		d, err := strconv.ParseInt(calStr, 10, 64)
-		if err == nil {
-			calVal = d * 11
-		}
-	} else {
+	if calStrLength > 0 {
 		fD := calStr[0]
 		lD := calStr[calStrLength-1]
 		n, err := strconv.ParseInt(string(fD)+string(lD), 10, 64)
